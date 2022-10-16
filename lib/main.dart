@@ -6,14 +6,24 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  static final ValueNotifier<ThemeMode> themeNotifier = ValueNotifier(ThemeMode.light);
+
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Navngenerator',
-      home: RandomWords(),
-    );
+    return ValueListenableBuilder<ThemeMode>(
+        valueListenable: themeNotifier,
+        builder: (_, ThemeMode currentMode, __) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'Navn',
+            theme: ThemeData(useMaterial3: true, colorSchemeSeed: const Color(0xFF8d6e63), brightness: Brightness.light),
+            darkTheme: ThemeData(useMaterial3: true, colorSchemeSeed: const Color(0xFF8d6e63), brightness: Brightness.dark),
+            themeMode: currentMode,
+            home: const RandomWords(),
+          );
+        });
   }
 }
 
@@ -26,10 +36,16 @@ class _RandomWordsState extends State<RandomWords> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Navngenerator'),
+        title: Text('Navngenerator', style: TextStyle(color: Theme.of(context).colorScheme.onPrimary)),
+        backgroundColor: Theme.of(context).colorScheme.onBackground,
         actions: [
           IconButton(
-            icon: const Icon(Icons.list),
+              icon: Icon(MyApp.themeNotifier.value == ThemeMode.light ? Icons.dark_mode : Icons.light_mode, color: Theme.of(context).colorScheme.onPrimary),
+              onPressed: () {
+                MyApp.themeNotifier.value = MyApp.themeNotifier.value == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
+              }),
+          IconButton(
+            icon: Icon(Icons.list, color: Theme.of(context).colorScheme.onPrimary),
             onPressed: _pushSaved,
             tooltip: 'Lagrede navn',
           ),
@@ -52,12 +68,9 @@ class _RandomWordsState extends State<RandomWords> {
               _suggestions[index].asPascalCase,
               style: _biggerFont,
             ),
-            trailing: Icon(
-              alreadySaved ? Icons.favorite : Icons.favorite_border,
-              semanticLabel:
-                  alreadySaved ? 'Fjern favoritt' : 'Legg til favoritt',
-              color: alreadySaved ? Colors.red : null,
-            ),
+            trailing: Icon(alreadySaved ? Icons.favorite : Icons.favorite_border,
+                semanticLabel: alreadySaved ? 'Fjern favoritt' : 'Legg til favoritt',
+                color: alreadySaved ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.onSurface),
             onTap: () {
               setState(() {
                 if (alreadySaved) {
