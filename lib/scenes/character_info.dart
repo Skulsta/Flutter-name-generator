@@ -31,11 +31,11 @@ class CharacterInfo extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(character.name, style: Theme.of(context).textTheme.headline3!.copyWith(color: Theme.of(context).colorScheme.secondary)),
-                      Text(character.occupation, style: Theme.of(context).textTheme.headline5!.copyWith(color: Theme.of(context).colorScheme.secondary)),
+                      Text(character.occupation, style: Theme.of(context).textTheme.headline6!.copyWith(color: Theme.of(context).colorScheme.secondary)),
                     ],
                   ),
                   Container(
-                    width: 200,
+                    width: 200.00 - character.occupation.length,
                     height: 130,
                     padding: const EdgeInsets.only(top: 8),
                     alignment: Alignment.bottomCenter,

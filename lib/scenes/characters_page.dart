@@ -20,6 +20,7 @@ class CharactersPage extends StatelessWidget {
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => CharacterInfo(characters[index].name)));
               },
               child: Card(
+                margin: const EdgeInsets.all(6),
                 color: Theme.of(context).colorScheme.background,
                 shadowColor: Theme.of(context).colorScheme.secondary,
                 elevation: 2,
