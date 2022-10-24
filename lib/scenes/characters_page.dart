@@ -9,7 +9,6 @@ class CharactersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.transparent,
       body: Container(
         padding: const EdgeInsets.all(16),
         child: GridView.builder(
@@ -21,7 +20,9 @@ class CharactersPage extends StatelessWidget {
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => CharacterInfo(characters[index].name)));
               },
               child: Card(
-                color: Colors.brown[100],
+                color: Theme.of(context).colorScheme.background,
+                shadowColor: Theme.of(context).colorScheme.secondary,
+                elevation: 2,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -30,7 +31,7 @@ class CharactersPage extends StatelessWidget {
                       width: double.infinity,
                       padding: const EdgeInsets.only(top: 16),
                       decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.secondary.withOpacity(0.7),
+                        color: Theme.of(context).colorScheme.secondary,
                         borderRadius:
                             const BorderRadius.only(topLeft: Radius.circular(12), topRight: Radius.circular(12), bottomLeft: Radius.circular(32), bottomRight: Radius.circular(32)),
                       ),

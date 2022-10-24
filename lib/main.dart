@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:english_words/english_words.dart';
 
 import 'scenes/characters_page.dart';
 
@@ -8,7 +7,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  static final ValueNotifier<ThemeMode> themeNotifier = ValueNotifier(ThemeMode.light);
+  static final ValueNotifier<ThemeMode> themeNotifier = ValueNotifier(ThemeMode.dark);
 
   const MyApp({super.key});
 
@@ -30,10 +29,6 @@ class MyApp extends StatelessWidget {
 }
 
 class _Home extends StatelessWidget {
-  final _suggestions = <WordPair>[];
-  final _biggerFont = const TextStyle(fontSize: 18);
-  final _saved = <WordPair>{};
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
