@@ -12,7 +12,11 @@ class CharactersPage extends StatelessWidget {
       body: Container(
         padding: const EdgeInsets.all(16),
         child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: MediaQuery.of(context).orientation == Orientation.portrait ? 3 : 5,
+            crossAxisSpacing: 16,
+            mainAxisSpacing: 16,
+          ),
           itemCount: characters.length,
           itemBuilder: (context, index) {
             return GestureDetector(
@@ -20,15 +24,15 @@ class CharactersPage extends StatelessWidget {
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => CharacterInfo(characters[index].name)));
               },
               child: Card(
-                margin: const EdgeInsets.all(6),
                 color: Theme.of(context).colorScheme.background,
                 shadowColor: Theme.of(context).colorScheme.secondary,
                 elevation: 2,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      height: 70,
+                      height: MediaQuery.of(context).orientation == Orientation.portrait ? 60 : 200,
                       width: double.infinity,
                       padding: const EdgeInsets.only(top: 16),
                       decoration: BoxDecoration(
@@ -42,12 +46,21 @@ class CharactersPage extends StatelessWidget {
                         onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => CharacterInfo(characters[index].name))),
                       ),
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        const SizedBox(height: 8),
-                        Text(characters[index].name, style: Theme.of(context).textTheme.subtitle1, textAlign: TextAlign.center),
-                      ],
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      child: MediaQuery.of(context).orientation == Orientation.portrait
+                          ? Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(characters[index].name, style: Theme.of(context).textTheme.subtitle1!.copyWith(color: Theme.of(context).colorScheme.secondary)),
+                              ],
+                            )
+                          : Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(characters[index].name, style: Theme.of(context).textTheme.headline3!.copyWith(color: Theme.of(context).colorScheme.secondary)),
+                              ],
+                            ),
                     ),
                   ],
                 ),
