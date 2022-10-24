@@ -32,8 +32,13 @@ class CharactersPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      height: MediaQuery.of(context).orientation == Orientation.portrait ? 60 : 200,
+                      // Scaling for web and phone
                       width: double.infinity,
+                      height: MediaQuery.of(context).size.width > 1500
+                          ? 200
+                          : MediaQuery.of(context).size.width > 1000
+                              ? 110
+                              : 60,
                       padding: const EdgeInsets.only(top: 16),
                       decoration: BoxDecoration(
                         color: Theme.of(context).colorScheme.secondary,
