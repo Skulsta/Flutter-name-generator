@@ -30,8 +30,8 @@ class CharacterInfo extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(character.name, style: Theme.of(context).textTheme.headline5!.copyWith(color: Theme.of(context).colorScheme.secondary)),
-                      Text(character.occupation, style: Theme.of(context).textTheme.subtitle1!.copyWith(color: Theme.of(context).colorScheme.secondary)),
+                      Text(character.name, style: Theme.of(context).textTheme.headline3!.copyWith(color: Theme.of(context).colorScheme.secondary)),
+                      Text(character.occupation, style: Theme.of(context).textTheme.headline5!.copyWith(color: Theme.of(context).colorScheme.secondary)),
                     ],
                   ),
                   Container(
@@ -62,7 +62,7 @@ class CharacterInfo extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Some text here', style: Theme.of(context).textTheme.headline6),
+                    Text('Some text here', style: Theme.of(context).textTheme.headline4),
                     const SizedBox(height: 8),
                     Text('More text here', style: Theme.of(context).textTheme.subtitle1),
                   ],
