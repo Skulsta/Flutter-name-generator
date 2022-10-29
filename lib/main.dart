@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'Navn',
-            theme: ThemeData(useMaterial3: true, colorSchemeSeed: const Color(0xFFFFB88D), brightness: Brightness.light),
-            darkTheme: ThemeData(useMaterial3: true, colorSchemeSeed: const Color(0xFFFFB88D), brightness: Brightness.dark),
+            theme: ThemeData(useMaterial3: true, colorSchemeSeed: const Color.fromRGBO(244, 185, 64, 1), brightness: Brightness.light),
+            darkTheme: ThemeData(useMaterial3: true, colorSchemeSeed: const Color.fromRGBO(244, 185, 64, 1), brightness: Brightness.dark),
             themeMode: currentMode,
             home: _Home(),
           );
