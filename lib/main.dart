@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/components/PhotoHero.dart';
 
 import 'scenes/characters_page.dart';
 
@@ -53,69 +52,93 @@ class _Home extends StatelessWidget {
               const Expanded(
                 child: CharactersPage(),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Image(
-                    image: AssetImage('assets/images/creatures/bee.png'),
-                    width: 80,
-                    height: 60,
-                  ),
-                  Text("Combat", style: Theme.of(context).textTheme.displayLarge!.copyWith(color: Theme.of(context).colorScheme.secondary).copyWith(letterSpacing: 5)),
-                ],
-              ),
-              const SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const [
-                  Image(
-                    image: AssetImage('assets/images/creatures/blub.png'),
-                    width: 60,
-                    height: 60,
-                  ),
-                  Image(
-                    image: AssetImage(
-                      'assets/images/misc/fighting_girl.png',
-                    ),
-                    width: 60,
-                    height: 60,
-                  ),
-                  Image(
-                    image: AssetImage('assets/images/misc/fighting_guy.png'),
-                  ),
-                  Image(
-                    image: AssetImage('assets/images/creatures/crow.png'),
-                    width: 60,
-                    height: 60,
-                  ),
-                ],
-              ),
-              const Spacer(),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: ListTile(
-                      title: Text("Make Chocolate", style: Theme.of(context).textTheme.headline6),
-                      subtitle: Text("Recipies and ingredients", style: Theme.of(context).textTheme.subtitle1),
-                      leading: Container(
-                        padding: const EdgeInsets.all(7),
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        child: PhotoHero(
-                            photo: MyApp.themeNotifier.value == ThemeMode.light ? 'assets/images/chocolate/white_chocolate.png' : 'assets/images/chocolate/chocolate_bar.png',
-                            width: 30,
-                            onTap: () {}),
-                      ),
-                      trailing: const Icon(Icons.arrow_forward_ios),
-                      onTap: () {},
-                    ),
-                  ),
-                ],
-              ),
+              // Card(
+              //   child: Padding(
+              //     padding: const EdgeInsets.all(8.0),
+              //     child: Row(
+              //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+              //       children: [
+              //         Card(
+              //           child: PhotoHero(
+              //             photo: 'assets/images/characters/nigel.png',
+              //             width: 100,
+              //             onTap: () {},
+              //           ),
+              //         ),
+              //         Card(
+              //           child: PhotoHero(
+              //             photo: 'assets/images/characters/nigel.png',
+              //             width: 100,
+              //             onTap: () {},
+              //           ),
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
+              // const SizedBox(height: 16),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: [
+              //     const Image(
+              //       image: AssetImage('assets/images/creatures/bee.png'),
+              //       width: 80,
+              //       height: 60,
+              //     ),
+              //     Text("Combat", style: Theme.of(context).textTheme.displayLarge!.copyWith(color: Theme.of(context).colorScheme.secondary).copyWith(letterSpacing: 5)),
+              //   ],
+              // ),
+              // const SizedBox(height: 20),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+              //   children: const [
+              //     Image(
+              //       image: AssetImage('assets/images/creatures/blub.png'),
+              //       width: 60,
+              //       height: 60,
+              //     ),
+              //     Image(
+              //       image: AssetImage(
+              //         'assets/images/misc/fighting_girl.png',
+              //       ),
+              //       width: 60,
+              //       height: 60,
+              //     ),
+              //     Image(
+              //       image: AssetImage('assets/images/misc/fighting_guy.png'),
+              //     ),
+              //     Image(
+              //       image: AssetImage('assets/images/creatures/crow.png'),
+              //       width: 60,
+              //       height: 60,
+              //     ),
+              //   ],
+              // ),
+              // Column(
+              //   crossAxisAlignment: CrossAxisAlignment.start,
+              //   children: [
+              //     Container(
+              //       padding: const EdgeInsets.symmetric(vertical: 8.0),
+              //       child: ListTile(
+              //         title: Text("Make Chocolate", style: Theme.of(context).textTheme.headline6),
+              //         subtitle: Text("Recipies and ingredients", style: Theme.of(context).textTheme.subtitle1),
+              //         leading: Container(
+              //           padding: const EdgeInsets.all(7),
+              //           decoration: BoxDecoration(
+              //             color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
+              //             borderRadius: BorderRadius.circular(10.0),
+              //           ),
+              //           child: PhotoHero(
+              //               photo: MyApp.themeNotifier.value == ThemeMode.light ? 'assets/images/chocolate/white_chocolate.png' : 'assets/images/chocolate/chocolate_bar.png',
+              //               width: 30,
+              //               onTap: () {}),
+              //         ),
+              //         trailing: const Icon(Icons.arrow_forward_ios),
+              //         onTap: () {},
+              //       ),
+              //     ),
+              //   ],
+              // ),
             ],
           ),
         ),
