@@ -56,22 +56,28 @@ class _Home extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8),
+                  Container(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.surface,
+                    ),
                     child: ListTile(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      tileColor: Theme.of(context).colorScheme.secondary,
                       title: Text("Make Chocolate",
-                          style: Theme.of(context).textTheme.headline6!.copyWith(color: Theme.of(context).colorScheme.onSecondary).copyWith(fontWeight: FontWeight.w500)),
+                          style: Theme.of(context).textTheme.headline6!.copyWith(color: Theme.of(context).colorScheme.secondary).copyWith(fontWeight: FontWeight.w500)),
                       subtitle: Text("Recipies and ingredients",
-                          style: Theme.of(context).textTheme.subtitle1!.copyWith(color: Theme.of(context).colorScheme.onSecondary).copyWith(fontWeight: FontWeight.w500)),
-                      leading: PhotoHero(
-                          photo: MyApp.themeNotifier.value == ThemeMode.light ? 'assets/images/chocolate/white_chocolate.png' : 'assets/images/chocolate/chocolate_bar.png',
-                          width: 40,
-                          onTap: () {}),
-                      trailing: Icon(Icons.arrow_forward_ios, color: Theme.of(context).colorScheme.onSecondary),
+                          style: Theme.of(context).textTheme.subtitle1!.copyWith(color: Theme.of(context).colorScheme.secondary).copyWith(fontWeight: FontWeight.w500)),
+                      leading: Container(
+                        padding: const EdgeInsets.all(7),
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.secondary,
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: PhotoHero(
+                            photo: MyApp.themeNotifier.value == ThemeMode.light ? 'assets/images/chocolate/white_chocolate.png' : 'assets/images/chocolate/chocolate_bar.png',
+                            width: 30,
+                            onTap: () {}),
+                      ),
+                      trailing: Icon(Icons.arrow_forward_ios, color: Theme.of(context).colorScheme.secondary),
                       onTap: () {},
                     ),
                   ),
