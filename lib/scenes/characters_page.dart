@@ -24,8 +24,8 @@ class CharactersPage extends StatelessWidget {
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => CharacterInfo(characters[index].name)));
               },
               child: Card(
-                color: Theme.of(context).colorScheme.background,
-                shadowColor: Theme.of(context).colorScheme.secondary,
+                color: Theme.of(context).colorScheme.surface,
+                shadowColor: Theme.of(context).colorScheme.primary,
                 elevation: 2,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -48,21 +48,13 @@ class CharactersPage extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      padding: const EdgeInsets.all(8),
-                      child: MediaQuery.of(context).orientation == Orientation.portrait
-                          ? Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(characters[index].name, style: Theme.of(context).textTheme.subtitle1!.copyWith(color: Theme.of(context).colorScheme.secondary)),
-                              ],
-                            )
-                          : Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(characters[index].name, style: Theme.of(context).textTheme.headline3!.copyWith(color: Theme.of(context).colorScheme.secondary)),
-                              ],
-                            ),
-                    ),
+                        padding: const EdgeInsets.all(8),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(characters[index].name, style: Theme.of(context).textTheme.subtitle1),
+                          ],
+                        )),
                   ],
                 ),
               ),

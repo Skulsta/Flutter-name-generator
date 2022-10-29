@@ -63,6 +63,8 @@ flutter:
     - assets/images/
     - assets/images/characters/
     - assets/images/chocolate/
+    - assets/images/creatures/
+    - assets/images/misc/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
