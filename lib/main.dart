@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_app/components/PhotoHero.dart';
 
 import 'scenes/characters_page.dart';
 
@@ -114,31 +115,31 @@ class _Home extends StatelessWidget {
               //     ),
               //   ],
               // ),
-              // Column(
-              //   crossAxisAlignment: CrossAxisAlignment.start,
-              //   children: [
-              //     Container(
-              //       padding: const EdgeInsets.symmetric(vertical: 8.0),
-              //       child: ListTile(
-              //         title: Text("Make Chocolate", style: Theme.of(context).textTheme.headline6),
-              //         subtitle: Text("Recipies and ingredients", style: Theme.of(context).textTheme.subtitle1),
-              //         leading: Container(
-              //           padding: const EdgeInsets.all(7),
-              //           decoration: BoxDecoration(
-              //             color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
-              //             borderRadius: BorderRadius.circular(10.0),
-              //           ),
-              //           child: PhotoHero(
-              //               photo: MyApp.themeNotifier.value == ThemeMode.light ? 'assets/images/chocolate/white_chocolate.png' : 'assets/images/chocolate/chocolate_bar.png',
-              //               width: 30,
-              //               onTap: () {}),
-              //         ),
-              //         trailing: const Icon(Icons.arrow_forward_ios),
-              //         onTap: () {},
-              //       ),
-              //     ),
-              //   ],
-              // ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: ListTile(
+                      title: Text("Make Chocolate", style: Theme.of(context).textTheme.headline6),
+                      subtitle: Text("Recipies and ingredients", style: Theme.of(context).textTheme.subtitle1),
+                      leading: Container(
+                        padding: const EdgeInsets.all(7),
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: PhotoHero(
+                            photo: MyApp.themeNotifier.value == ThemeMode.light ? 'assets/images/chocolate/white_chocolate.png' : 'assets/images/chocolate/chocolate_bar.png',
+                            width: 30,
+                            onTap: () {}),
+                      ),
+                      trailing: const Icon(Icons.arrow_forward_ios),
+                      onTap: () {},
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
