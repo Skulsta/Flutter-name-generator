@@ -41,7 +41,7 @@ class CharactersPage extends StatelessWidget {
                               : 60,
                       padding: const EdgeInsets.only(top: 16),
                       decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.secondary,
+                        color: characters[index].color,
                         borderRadius:
                             const BorderRadius.only(topLeft: Radius.circular(12), topRight: Radius.circular(12), bottomLeft: Radius.circular(32), bottomRight: Radius.circular(32)),
                       ),

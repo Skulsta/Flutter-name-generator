@@ -40,6 +40,7 @@ class _Home extends StatelessWidget {
               onPressed: () {
                 MyApp.themeNotifier.value = MyApp.themeNotifier.value == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
               }),
+          const SizedBox(width: 16),
         ],
       ),
       body: const CharactersPage(),
