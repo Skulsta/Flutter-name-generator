@@ -69,7 +69,7 @@ class _Home extends StatelessWidget {
                       leading: Container(
                         padding: const EdgeInsets.all(7),
                         decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.secondary,
+                          color: MyApp.themeNotifier.value == ThemeMode.light ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.secondary,
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         child: PhotoHero(
