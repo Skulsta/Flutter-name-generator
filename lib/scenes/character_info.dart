@@ -15,59 +15,57 @@ class CharacterInfo extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: character.color,
         toolbarTextStyle: Theme.of(context).textTheme.bodyText1,
       ),
       body: SafeArea(
         child: Center(
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: SizedBox(
             width: double.infinity,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(character.name, style: Theme.of(context).textTheme.headline3!.copyWith(color: Theme.of(context).colorScheme.secondary)),
-                        Text(character.occupation, style: Theme.of(context).textTheme.headline6!.copyWith(color: Theme.of(context).colorScheme.secondary)),
-                      ],
-                    ),
-                    Container(
-                      width: 200.00 - character.occupation.length,
-                      height: 130,
-                      padding: const EdgeInsets.only(top: 8),
-                      alignment: Alignment.bottomCenter,
-                      decoration: BoxDecoration(
-                        // border: Border.all(color: Theme.of(context).colorScheme.primary),
-                        borderRadius: const BorderRadius.all(Radius.circular(12)),
-                        color: character.color,
-                      ),
-                      child: PhotoHero(
+                Container(
+                  padding: EdgeInsets.only(right: MediaQuery.of(context).size.width * 0.1),
+                  alignment: Alignment.bottomRight,
+                  decoration: BoxDecoration(
+                    color: character.color,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Container(
+                          width: MediaQuery.of(context).size.width * 0.5,
+                          padding: const EdgeInsets.only(top: 16, left: 16),
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).colorScheme.surface,
+                            borderRadius: const BorderRadius.only(
+                              topRight: Radius.circular(16),
+                            ),
+                          ),
+                          child: Text(
+                            character.name,
+                            style: Theme.of(context).textTheme.displayMedium!.copyWith(color: character.color),
+                          )),
+                      PhotoHero(
                         photo: 'assets/images/characters/${character.name.toLowerCase()}.png',
                         width: 120,
                         onTap: () {},
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-                Divider(
-                  color: Theme.of(context).colorScheme.secondary,
-                  height: 32,
-                  thickness: 1,
-                  indent: 0,
-                  endIndent: 0,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Some text here', style: Theme.of(context).textTheme.headline4),
-                    const SizedBox(height: 8),
-                    Text('More text here', style: Theme.of(context).textTheme.subtitle1),
-                  ],
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Some text here', style: Theme.of(context).textTheme.headline4),
+                      const SizedBox(height: 8),
+                      Text('More text here', style: Theme.of(context).textTheme.subtitle1),
+                    ],
+                  ),
                 ),
               ],
             ),
