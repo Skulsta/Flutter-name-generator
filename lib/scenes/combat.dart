@@ -23,7 +23,7 @@ class Combat extends StatelessWidget {
                 const Image(
                   image: AssetImage('assets/images/creatures/bee.png'),
                   width: 80,
-                  height: 60,
+                  height: 50,
                 ),
                 Text("Combat", style: Theme.of(context).textTheme.displayMedium!.copyWith(color: Theme.of(context).colorScheme.onTertiaryContainer).copyWith(letterSpacing: 5)),
               ],
@@ -39,23 +39,25 @@ class Combat extends StatelessWidget {
               children: const [
                 Image(
                   image: AssetImage('assets/images/creatures/blub.png'),
-                  width: 60,
-                  height: 60,
+                  width: 50,
+                  height: 50,
                 ),
                 Image(
                   image: AssetImage(
                     'assets/images/misc/fighting_girl.png',
                   ),
-                  width: 60,
-                  height: 60,
+                  width: 50,
+                  height: 50,
                 ),
                 Image(
                   image: AssetImage('assets/images/misc/fighting_guy.png'),
+                  width: 65,
+                  height: 65,
                 ),
                 Image(
                   image: AssetImage('assets/images/creatures/crow.png'),
-                  width: 60,
-                  height: 60,
+                  width: 50,
+                  height: 50,
                 ),
               ],
             ),

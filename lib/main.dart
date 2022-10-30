@@ -24,24 +24,51 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(useMaterial3: true, colorSchemeSeed: const Color.fromRGBO(228, 176, 123, 1), brightness: Brightness.light),
             darkTheme: ThemeData(useMaterial3: true, colorSchemeSeed: const Color.fromRGBO(228, 176, 123, 1), brightness: Brightness.dark),
             themeMode: currentMode,
-            home: _Home(),
+            home: const Home(),
           );
         });
   }
 }
 
-class _Home extends StatelessWidget {
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Chocolatier's Guide"),
           actions: [
-            IconButton(
-                icon: Icon(MyApp.themeNotifier.value == ThemeMode.light ? Icons.dark_mode : Icons.light_mode),
-                onPressed: () {
-                  MyApp.themeNotifier.value = MyApp.themeNotifier.value == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
-                }),
+            Row(
+              children: [
+                Text("Chocolatier's Guide",
+                    style: Theme.of(context).textTheme.headline5!.copyWith(color: Theme.of(context).colorScheme.secondary).copyWith(fontWeight: FontWeight.w600)),
+                Container(
+                  margin: const EdgeInsets.only(right: 20, left: 8),
+                  child: ColorFiltered(
+                    colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.surface.withOpacity(MyApp.themeNotifier.value == ThemeMode.light ? 0.5 : 1), BlendMode.saturation),
+                    child: IconButton(
+                        tooltip: "Toggle theme",
+                        icon: Image.asset('assets/images/misc/ghost_glasses.png', width: 30),
+                        onPressed: () {
+                          MyApp.themeNotifier.value = MyApp.themeNotifier.value == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
+                        }),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
         body: SafeArea(
@@ -68,7 +95,7 @@ class _Home extends StatelessWidget {
                           color: Theme.of(context).colorScheme.secondaryContainer,
                         ),
                         child: ListTile(
-                          title: Text("Make Chocolate",
+                          title: Text("Hone your craft",
                               style:
                                   Theme.of(context).textTheme.headline6!.copyWith(color: Theme.of(context).colorScheme.onPrimaryContainer).copyWith(fontWeight: FontWeight.w500)),
                           subtitle:
@@ -124,13 +151,10 @@ class _Home extends StatelessWidget {
                                 width: 30,
                                 onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Combat()))),
                           ),
-                          trailing: Icon(Icons.arrow_forward_ios, color: Theme.of(context).colorScheme.onPrimaryContainer),
+                          trailing: Icon(Icons.arrow_forward_ios, color: Theme.of(context).colorScheme.onTertiaryContainer),
                         ),
                       ),
                     ],
-                  ),
-                  const SizedBox(
-                    height: 6,
                   ),
                 ],
               ),
