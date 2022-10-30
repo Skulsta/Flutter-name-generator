@@ -50,15 +50,19 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          scrolledUnderElevation: 0,
           actions: [
             Row(
               children: [
-                Text("Chocolatier's Guide",
-                    style: Theme.of(context).textTheme.headline5!.copyWith(color: Theme.of(context).colorScheme.secondary).copyWith(fontWeight: FontWeight.w600)),
                 Container(
-                  margin: const EdgeInsets.only(right: 20, left: 8),
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: Text("Chocolatier's Guide",
+                      style: Theme.of(context).textTheme.headline5!.copyWith(color: Theme.of(context).colorScheme.onSurface).copyWith(fontWeight: FontWeight.w600)),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(right: 20),
                   child: ColorFiltered(
-                    colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.surface.withOpacity(MyApp.themeNotifier.value == ThemeMode.light ? 0.5 : 1), BlendMode.saturation),
+                    colorFilter: ColorFilter.mode(Theme.of(context).colorScheme.surface.withOpacity(MyApp.themeNotifier.value == ThemeMode.light ? 0.7 : 1), BlendMode.saturation),
                     child: IconButton(
                         tooltip: "Toggle theme",
                         icon: Image.asset('assets/images/misc/ghost_glasses.png', width: 30),
@@ -74,11 +78,11 @@ class _HomeState extends State<Home> {
         body: SafeArea(
           child: Expanded(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(" People", style: Theme.of(context).textTheme.headline6),
+                  Text(" People", style: Theme.of(context).textTheme.headline6!.copyWith(color: Theme.of(context).colorScheme.onSurface)),
                   const SizedBox(
                     height: 12,
                   ),
@@ -86,7 +90,7 @@ class _HomeState extends State<Home> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(" Chocolate", style: Theme.of(context).textTheme.headline6),
+                      Text(" Chocolate", style: Theme.of(context).textTheme.headline6!.copyWith(color: Theme.of(context).colorScheme.onSurface)),
                       Container(
                         margin: const EdgeInsets.symmetric(vertical: 12),
                         padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -124,7 +128,7 @@ class _HomeState extends State<Home> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(" Combat", style: Theme.of(context).textTheme.headline6),
+                      Text(" Combat", style: Theme.of(context).textTheme.headline6!.copyWith(color: Theme.of(context).colorScheme.onSurface)),
                       Container(
                         margin: const EdgeInsets.symmetric(vertical: 12),
                         padding: const EdgeInsets.symmetric(vertical: 8.0),

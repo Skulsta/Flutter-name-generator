@@ -9,60 +9,34 @@ class Combat extends StatelessWidget {
       appBar: AppBar(
         toolbarTextStyle: Theme.of(context).textTheme.bodyText1,
         backgroundColor: Theme.of(context).colorScheme.tertiaryContainer,
+        iconTheme: IconThemeData(
+          color: Theme.of(context).colorScheme.onTertiaryContainer,
+        ),
+        title: Text(
+          "Combat",
+          style: Theme.of(context).textTheme.headline5!.copyWith(color: Theme.of(context).colorScheme.onTertiaryContainer),
+        ),
+        centerTitle: false,
       ),
-      body: Column(
-        children: [
-          Container(
-            padding: const EdgeInsets.only(bottom: 16),
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.tertiaryContainer,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Text(
+              "Lots of content",
+              style: Theme.of(context).textTheme.displaySmall!.copyWith(color: Theme.of(context).colorScheme.onTertiaryContainer),
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Image(
-                  image: AssetImage('assets/images/creatures/bee.png'),
-                  width: 80,
-                  height: 50,
-                ),
-                Text("Combat", style: Theme.of(context).textTheme.displayMedium!.copyWith(color: Theme.of(context).colorScheme.onTertiaryContainer).copyWith(letterSpacing: 5)),
-              ],
+            const SizedBox(
+              width: 16,
             ),
-          ),
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 50),
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.tertiary,
+            const Image(
+              image: AssetImage('assets/images/misc/fighting_guy.png'),
+              width: 70,
+              height: 70,
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: const [
-                Image(
-                  image: AssetImage('assets/images/creatures/blub.png'),
-                  width: 50,
-                  height: 50,
-                ),
-                Image(
-                  image: AssetImage(
-                    'assets/images/misc/fighting_girl.png',
-                  ),
-                  width: 50,
-                  height: 50,
-                ),
-                Image(
-                  image: AssetImage('assets/images/misc/fighting_guy.png'),
-                  width: 65,
-                  height: 65,
-                ),
-                Image(
-                  image: AssetImage('assets/images/creatures/crow.png'),
-                  width: 50,
-                  height: 50,
-                ),
-              ],
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
