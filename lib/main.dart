@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/components/PhotoHero.dart';
+import 'package:test_app/scenes/combat.dart';
 
-import 'scenes/characters_page.dart';
+import 'components/characters_grid.dart';
 
 void main() {
   runApp(const MyApp());
@@ -102,6 +103,7 @@ class _Home extends StatelessWidget {
                           color: Theme.of(context).colorScheme.tertiaryContainer,
                         ),
                         child: ListTile(
+                          onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Combat())),
                           title: Text("Prepare for battle",
                               style:
                                   Theme.of(context).textTheme.headline6!.copyWith(color: Theme.of(context).colorScheme.onTertiaryContainer).copyWith(fontWeight: FontWeight.w500)),
@@ -117,7 +119,6 @@ class _Home extends StatelessWidget {
                             child: PhotoHero(photo: 'assets/images/creatures/blub.png', width: 30, onTap: () {}),
                           ),
                           trailing: Icon(Icons.arrow_forward_ios, color: Theme.of(context).colorScheme.onPrimaryContainer),
-                          onTap: () {},
                         ),
                       ),
                     ],
@@ -125,36 +126,6 @@ class _Home extends StatelessWidget {
                   const SizedBox(
                     height: 6,
                   ),
-
-                  // Text(' Combat', style: Theme.of(context).textTheme.headline6),
-                  // Container(
-                  //   margin: const EdgeInsets.symmetric(vertical: 16),
-                  //   decoration: BoxDecoration(
-                  //     borderRadius: BorderRadius.circular(8.0),
-                  //     color: Theme.of(context).colorScheme.secondaryContainer,
-                  //   ),
-                  //   child: Row(
-                  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //     children: [
-                  //       Container(
-                  //         decoration: BoxDecoration(
-                  //           borderRadius: BorderRadius.circular(8.0),
-                  //           color: Theme.of(context).colorScheme.secondary,
-                  //         ),
-                  //         padding: const EdgeInsets.all(8.0),
-                  //         child: Text("Chocolate", style: Theme.of(context).textTheme.headline6!.copyWith(color: Theme.of(context).colorScheme.onSecondaryContainer)),
-                  //       ),
-                  //       Container(
-                  //         decoration: BoxDecoration(
-                  //           borderRadius: BorderRadius.circular(8.0),
-                  //           color: Theme.of(context).colorScheme.secondary,
-                  //         ),
-                  //         padding: const EdgeInsets.all(8.0),
-                  //         child: Text("Chocolate", style: Theme.of(context).textTheme.headline6!.copyWith(color: Theme.of(context).colorScheme.onSecondaryContainer)),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
                 ],
               ),
             ),
@@ -162,54 +133,3 @@ class _Home extends StatelessWidget {
         ));
   }
 }
-        // const SizedBox(height: 16),
-        // Container(
-        //   decoration: BoxDecoration(
-        //     color: Theme.of(context).colorScheme.surface,
-        //     borderRadius: BorderRadius.circular(12),
-        //   ),
-        //   child: Row(
-        //     mainAxisAlignment: MainAxisAlignment.center,
-        //     children: [
-        //       const Image(
-        //         image: AssetImage('assets/images/creatures/bee.png'),
-        //         width: 80,
-        //         height: 60,
-        //       ),
-        //       Text("Combat", style: Theme.of(context).textTheme.displayLarge!.copyWith(color: Theme.of(context).colorScheme.secondary).copyWith(letterSpacing: 5)),
-        //     ],
-        //   ),
-        // ),
-        // const SizedBox(height: 20),
-        // Container(
-        //   decoration: BoxDecoration(
-        //     color: Theme.of(context).colorScheme.secondary,
-        //     borderRadius: BorderRadius.circular(10),
-        //   ),
-        //   child: Row(
-        //     mainAxisAlignment: MainAxisAlignment.spaceAround,
-        //     children: const [
-        //       Image(
-        //         image: AssetImage('assets/images/creatures/blub.png'),
-        //         width: 60,
-        //         height: 60,
-        //       ),
-        //       Image(
-        //         image: AssetImage(
-        //           'assets/images/misc/fighting_girl.png',
-        //         ),
-        //         width: 60,
-        //         height: 60,
-        //       ),
-        //       Image(
-        //         image: AssetImage('assets/images/misc/fighting_guy.png'),
-        //       ),
-        //       Image(
-        //         image: AssetImage('assets/images/creatures/crow.png'),
-        //         width: 60,
-        //         height: 60,
-        //       ),
-        //     ],
-        //   ),
-        // ),
-        // const SizedBox(height: 32),

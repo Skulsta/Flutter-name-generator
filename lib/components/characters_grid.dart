@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/all_characters.dart';
 import 'package:test_app/components/PhotoHero.dart';
+import 'package:test_app/data/all_characters.dart';
 import 'package:test_app/scenes/character_info.dart';
 
 class CharactersPage extends StatelessWidget {
@@ -18,9 +18,7 @@ class CharactersPage extends StatelessWidget {
         itemCount: characters.length,
         itemBuilder: (context, index) {
           return GestureDetector(
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => CharacterInfo(characters[index].name)));
-            },
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => CharacterInfo(characters[index].name))),
             child: Card(
               color: Theme.of(context).colorScheme.surface,
               shadowColor: Theme.of(context).colorScheme.primary,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:test_app/all_characters.dart';
+import 'package:test_app/data/all_characters.dart';
 import 'package:test_app/components/PhotoHero.dart';
 
 class CharacterInfo extends StatelessWidget {
