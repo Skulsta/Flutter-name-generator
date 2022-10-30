@@ -21,7 +21,7 @@ class CharacterInfo extends StatelessWidget {
         child: Center(
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            width: MediaQuery.of(context).size.width > 600 ? 600 : MediaQuery.of(context).size.width,
+            width: double.infinity,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -42,8 +42,9 @@ class CharacterInfo extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 8),
                       alignment: Alignment.bottomCenter,
                       decoration: BoxDecoration(
-                        border: Border.all(color: Theme.of(context).colorScheme.secondary),
+                        // border: Border.all(color: Theme.of(context).colorScheme.secondary),
                         borderRadius: const BorderRadius.all(Radius.circular(12)),
+                        color: character.color,
                       ),
                       child: PhotoHero(
                         photo: 'assets/images/characters/${character.name.toLowerCase()}.png',
@@ -60,15 +61,13 @@ class CharacterInfo extends StatelessWidget {
                   indent: 0,
                   endIndent: 0,
                 ),
-                Container(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Some text here', style: Theme.of(context).textTheme.headline4),
-                      const SizedBox(height: 8),
-                      Text('More text here', style: Theme.of(context).textTheme.subtitle1),
-                    ],
-                  ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Some text here', style: Theme.of(context).textTheme.headline4),
+                    const SizedBox(height: 8),
+                    Text('More text here', style: Theme.of(context).textTheme.subtitle1),
+                  ],
                 ),
               ],
             ),
