@@ -42,7 +42,7 @@ class CharacterInfo extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 8),
                       alignment: Alignment.bottomCenter,
                       decoration: BoxDecoration(
-                        // border: Border.all(color: Theme.of(context).colorScheme.secondary),
+                        // border: Border.all(color: Theme.of(context).colorScheme.primary),
                         borderRadius: const BorderRadius.all(Radius.circular(12)),
                         color: character.color,
                       ),
