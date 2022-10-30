@@ -13,6 +13,7 @@ class Combat extends StatelessWidget {
       body: Column(
         children: [
           Container(
+            padding: const EdgeInsets.only(bottom: 16),
             decoration: BoxDecoration(
               color: Theme.of(context).colorScheme.tertiaryContainer,
             ),
@@ -24,14 +25,14 @@ class Combat extends StatelessWidget {
                   width: 80,
                   height: 60,
                 ),
-                Text("Combat", style: Theme.of(context).textTheme.displayLarge!.copyWith(color: Theme.of(context).colorScheme.onTertiaryContainer).copyWith(letterSpacing: 5)),
+                Text("Combat", style: Theme.of(context).textTheme.displayMedium!.copyWith(color: Theme.of(context).colorScheme.onTertiaryContainer).copyWith(letterSpacing: 5)),
               ],
             ),
           ),
           Container(
-            padding: const EdgeInsets.symmetric(vertical: 16),
+            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 50),
             decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.tertiaryContainer,
+              color: Theme.of(context).colorScheme.tertiary,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,

@@ -52,13 +52,16 @@ class _Home extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(" People", style: Theme.of(context).textTheme.headline6),
-                  const SizedBox(height: 270, child: CharactersPage()),
+                  const SizedBox(
+                    height: 12,
+                  ),
+                  const SizedBox(height: 265, child: CharactersPage()),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(" Chocolate", style: Theme.of(context).textTheme.headline6),
                       Container(
-                        margin: const EdgeInsets.symmetric(vertical: 16),
+                        margin: const EdgeInsets.symmetric(vertical: 12),
                         padding: const EdgeInsets.symmetric(vertical: 8.0),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8.0),
@@ -96,7 +99,7 @@ class _Home extends StatelessWidget {
                     children: [
                       Text(" Combat", style: Theme.of(context).textTheme.headline6),
                       Container(
-                        margin: const EdgeInsets.symmetric(vertical: 16),
+                        margin: const EdgeInsets.symmetric(vertical: 12),
                         padding: const EdgeInsets.symmetric(vertical: 8.0),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8.0),
@@ -116,7 +119,10 @@ class _Home extends StatelessWidget {
                               borderRadius: BorderRadius.circular(10.0),
                               border: Border.all(color: Theme.of(context).colorScheme.onTertiaryContainer, width: 2),
                             ),
-                            child: PhotoHero(photo: 'assets/images/creatures/blub.png', width: 30, onTap: () {}),
+                            child: PhotoHero(
+                                photo: 'assets/images/creatures/blub.png',
+                                width: 30,
+                                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Combat()))),
                           ),
                           trailing: Icon(Icons.arrow_forward_ios, color: Theme.of(context).colorScheme.onPrimaryContainer),
                         ),
